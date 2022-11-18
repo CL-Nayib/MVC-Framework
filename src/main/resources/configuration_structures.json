@@ -1,7 +1,7 @@
 {
     "mvcConfiguration" : [
         {
-            "transsactionName": "string",
+            "transactionName": "string",
             "control": "string",
             "model": "string",
             "function": "string"

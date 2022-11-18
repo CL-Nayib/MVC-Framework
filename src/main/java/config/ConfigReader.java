@@ -2,6 +2,7 @@ package config;
 
 import com.google.gson.*;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -17,18 +18,20 @@ public abstract class ConfigReader {
         return gsonInstance;
     }
 
-    abstract public Configuration[] getConfigurations();
-    abstract protected Configuration parseJsonToConfigurationObject();
-    abstract protected void validateJsonFile(JsonObject json, Class<Configuration> configurationClass) throws JsonAttributeNotFoundException;
+    abstract public Configuration[] getConfigurations(JsonArray jsonArray);
+    abstract protected Configuration parseJsonToConfigurationObject(JsonObject json);
+    abstract protected void validateJsonFile() throws JsonAttributeNotFoundException;
 
-    protected JsonElement jsonElement;
+    protected JsonElement jsonFile;
 
-    protected final void readFile(String filename) {
-        try (Reader reader = new FileReader(filename)) {
-            jsonElement = gsonInstance().fromJson(reader, JsonElement.class);
-        } catch (IOException e) {
-            System.err.println("File not found");
-            e.printStackTrace();
-        }
+    protected final void readFile(String filename) throws FileNotFoundException {
+        Reader reader = new FileReader(filename);
+        jsonFile = gsonInstance().fromJson(reader, JsonElement.class);
+    }
+
+    protected final void validateAttribute(JsonObject object, String attributeName) throws JsonAttributeNotFoundException {
+        JsonElement element = object.get(attributeName);
+        if (jsonFile.isJsonPrimitive()) return;
+        throw new JsonAttributeNotFoundException(attributeName);
     }
 }
