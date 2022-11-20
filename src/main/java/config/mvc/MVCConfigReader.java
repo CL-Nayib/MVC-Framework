@@ -1,62 +1,38 @@
 package config.mvc;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import config.ConfigReader;
-import config.JsonAttributeNotFoundException;
+import config.exceptions.JsonAttributeException;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
-public class MVCConfigReader extends ConfigReader {
+public class MVCConfigReader extends ConfigReader<MVCConfig> {
 
-    public MVCConfigReader(String fileName) throws JsonAttributeNotFoundException, FileNotFoundException {
-        readFile(fileName);
-        validateJsonFile();
+    private static final String configArrayName = "mvcConfiguration";
+
+    public MVCConfigReader() throws JsonAttributeException, FileNotFoundException {
+        this("config/mvcConfig.json");
+    }
+
+    public MVCConfigReader(String filePath) throws JsonAttributeException, FileNotFoundException {
+        super(
+                filePath,
+                configArrayName,
+                new String[]{
+                        "transactionName",
+                        "controllerClass",
+                        "modelClass",
+                        "functionName"
+                }
+        );
     }
 
     @Override
-    public MVCConfig[] getConfigurations(JsonArray jsonArray) {
-
-        MVCConfig[] mvcConfigs = new MVCConfig[jsonArray.size()];
-
-        for (int i = 0; i < jsonArray.size(); i++) {
-            mvcConfigs[0] = parseJsonToConfigurationObject(
-                    jsonArray.get(i).getAsJsonObject()
-            );
-        }
-
-        return mvcConfigs;
-    }
-
-    @Override
-    protected MVCConfig parseJsonToConfigurationObject(JsonObject json) {
-        String transactionName = json.getAsJsonPrimitive("transactionName").getAsString();
-        String controllerClass = json.getAsJsonPrimitive("controllerClass").getAsString();
-        String modelClass = json.getAsJsonPrimitive("modelClass").getAsString();
-        String functionName = json.getAsJsonPrimitive("functionName").getAsString();
-
-        return new MVCConfig(transactionName, controllerClass, modelClass, functionName);
-    }
-
-    @Override
-    protected void validateJsonFile() throws JsonAttributeNotFoundException {
-
-        if ( jsonFile == null || !jsonFile.isJsonObject()) throw new JsonAttributeNotFoundException("MVC Config file");
-
-        JsonElement jsonElement = jsonFile.getAsJsonObject().get("mvcConfiguration");
-        if ( jsonElement == null || !jsonElement.isJsonArray()) throw new JsonAttributeNotFoundException("mvcConfiguration");
-
-        JsonArray jsonArray = jsonElement.getAsJsonArray();
-
-        for (JsonElement jsonConfig : jsonArray) {
-            if (!jsonConfig.isJsonObject()) throw new JsonAttributeNotFoundException("MVCConfig object");
-            JsonObject jsonObject = jsonConfig.getAsJsonObject();
-
-            validateAttribute(jsonObject, "transactionName");
-            validateAttribute(jsonObject, "controllerClass");
-            validateAttribute(jsonObject, "modelClass");
-            validateAttribute(jsonObject, "functionName");
-        }
+    public MVCConfig[] getConfigurations() {
+        JsonElement array = jsonFile.getAsJsonObject().get(configArrayName);
+        List<MVCConfig> configs = gson.fromJson(array, new TypeToken<>(){});
+        return configs.toArray(new MVCConfig[0]);
     }
 }
