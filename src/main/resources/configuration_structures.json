@@ -1,0 +1,26 @@
+{
+    "mvcConfiguration" : [
+        {
+            "transactionName": "string",
+            "control": "string",
+            "model": "string",
+            "function": "string"
+        }
+    ],
+    "databaseConfiguration" : [
+        {
+            "id" : "string",
+            "url" : "string",
+            "user" : "string",
+            "password" : "string"
+        }
+    ],
+    "poolConfig" : [
+        {
+            "size" : "Int",
+            "port" : "Int",
+            "urlServer" : "String",
+            "databaseType" : "Enum"
+        }
+    ]
+}

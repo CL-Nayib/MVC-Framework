@@ -1,0 +1,10 @@
+{
+  "databaseConfiguration" : [
+    {
+      "id" : "i",
+      "url" : "url",
+      "user" : "user",
+      "password" : "p"
+    }
+  ]
+}

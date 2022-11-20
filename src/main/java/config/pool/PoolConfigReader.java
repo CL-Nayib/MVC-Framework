@@ -1,0 +1,38 @@
+package config.pool;
+
+import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
+import config.ConfigReader;
+import config.exceptions.JsonAttributeException;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+
+public class PoolConfigReader extends ConfigReader<PoolConfig> {
+
+    private static final String configArrayName = "poolConfig";
+
+    public PoolConfigReader() throws JsonAttributeException, FileNotFoundException {
+        this("config/poolConfig.json");
+    }
+
+    public PoolConfigReader(String filePath) throws JsonAttributeException, FileNotFoundException {
+        super(
+                filePath,
+                configArrayName,
+                new String[]{
+                        "size",
+                        "port",
+                        "urlServer",
+                        "databaseType"
+                }
+        );
+    }
+
+    @Override
+    public PoolConfig[] getConfigurations() {
+        JsonElement array = jsonFile.getAsJsonObject().get(configArrayName);
+        List<PoolConfig> configs = gson.fromJson(array, new TypeToken<>(){});
+        return configs.toArray(new PoolConfig[0]);
+    }
+}

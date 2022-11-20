@@ -1,0 +1,14 @@
+{
+  "configTest" : [
+    {
+      "one" : "String",
+      "two" : "String",
+      "three" : "String"
+    },
+    {
+      "one" : "String",
+      "two" : "String",
+      "three" : "String"
+    }
+  ]
+}

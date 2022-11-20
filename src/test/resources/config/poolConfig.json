@@ -1,0 +1,10 @@
+{
+  "poolConfig" : [
+    {
+      "size" : 0,
+      "port" : 0,
+      "urlServer" : "u",
+      "databaseType" : "d"
+    }
+  ]
+}
