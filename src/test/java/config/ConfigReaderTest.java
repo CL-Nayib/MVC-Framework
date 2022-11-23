@@ -150,7 +150,8 @@ public class ConfigReaderTest {
                             "t",
                             "c",
                             "m",
-                            "f"
+                            "f",
+                            "v"
                     )
             },reader.getConfigurations());
 
