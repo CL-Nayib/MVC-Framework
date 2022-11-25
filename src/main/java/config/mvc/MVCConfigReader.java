@@ -24,7 +24,9 @@ public class MVCConfigReader extends ConfigReader<MVCConfig> {
                         "transactionName",
                         "controllerClass",
                         "modelClass",
-                        "functionName"
+                        "viewName",
+                        "functionName",
+
                 }
         );
     }

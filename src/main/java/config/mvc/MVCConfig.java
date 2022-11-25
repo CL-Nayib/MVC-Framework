@@ -9,12 +9,14 @@ public class MVCConfig extends Configuration {
     private final String controllerClass;
     private final String modelClass;
     private final String functionName;
+    private final String viewName;
 
-    public MVCConfig(String transactionName, String controllerClass, String modelClass, String functionName) {
+    public MVCConfig(String transactionName, String controllerClass, String modelClass, String functionName, String viewName) {
         this.transactionName = transactionName;
         this.controllerClass = controllerClass;
         this.modelClass = modelClass;
         this.functionName = functionName;
+        this.viewName = viewName;
     }
 
     public String getTransactionName() {
@@ -33,6 +35,10 @@ public class MVCConfig extends Configuration {
         return functionName;
     }
 
+    public String getViewName() {
+        return viewName;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof MVCConfig)) return false;
@@ -41,7 +47,8 @@ public class MVCConfig extends Configuration {
         boolean isSameController = Objects.equals(controllerClass, ((MVCConfig) obj).controllerClass);
         boolean isSameModel = Objects.equals(modelClass, ((MVCConfig) obj).modelClass);
         boolean isSameFunction = Objects.equals(functionName, ((MVCConfig) obj).functionName);
+        boolean isSameView = Objects.equals(viewName, ((MVCConfig) obj).viewName);
 
-        return isSameTransaction && isSameController && isSameModel && isSameFunction;
+        return isSameTransaction && isSameController && isSameModel && isSameFunction && isSameView;
     }
 }
