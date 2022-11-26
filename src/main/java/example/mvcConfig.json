@@ -1,0 +1,11 @@
+{
+  "mvcConfiguration" : [
+    {
+      "transactionName": "example",
+      "controllerClass": "example.ExampleController",
+      "modelClass": "example.ExampleModel",
+      "viewName": "example.ExampleView",
+      "functionName": "f"
+    }
+  ]
+}

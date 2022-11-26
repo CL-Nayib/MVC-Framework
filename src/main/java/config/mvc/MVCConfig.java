@@ -35,6 +35,10 @@ public class MVCConfig extends Configuration {
         return functionName;
     }
 
+    public String getViewName() {
+        return viewName;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof MVCConfig)) return false;

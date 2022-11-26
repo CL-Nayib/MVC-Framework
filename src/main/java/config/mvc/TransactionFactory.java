@@ -9,7 +9,7 @@ import java.lang.reflect.Constructor;
 
 public class TransactionFactory {
 
-    public TransactionMVC createTransaction(String model, String controller, String view) throws Exception {
+    public TransactionMVC createTransaction( String controller,String model, String view) throws Exception {
         TransactionMVC transaction = new TransactionMVC();
         transaction.setModel(createModel(model));
         transaction.setController(createController(controller));

@@ -14,7 +14,7 @@ public abstract class Controller {
         this.model = model;
     }
 
-    public void processService(String msg) {
+    public void processPetition(String msg) {
         process(msg);
         model.processService(msg);
     }
