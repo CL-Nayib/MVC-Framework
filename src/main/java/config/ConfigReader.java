@@ -64,7 +64,7 @@ public abstract class ConfigReader<Configuration> {
         }
     }
 
-    protected final void validateAttribute(JsonObject json, String attributeName) throws JsonAttributeException {
+    protected void validateAttribute(JsonObject json, String attributeName) throws JsonAttributeException {
         if (!json.has(attributeName)) {
             throw new JsonAttributeNotFoundException(attributeName);
         }
