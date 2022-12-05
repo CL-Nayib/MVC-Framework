@@ -22,6 +22,6 @@ public class MariaDBPool extends ConnectionPool{
 
     @Override
     protected String getDriverClassName() {
-        return Driver.class.toString();
+        return Driver.class.getName();
     }
 }

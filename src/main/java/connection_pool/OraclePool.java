@@ -22,6 +22,6 @@ public class OraclePool extends ConnectionPool{
 
     @Override
     protected String getDriverClassName() {
-        return OracleDriver.class.toString();
+        return OracleDriver.class.getName();
     }
 }
