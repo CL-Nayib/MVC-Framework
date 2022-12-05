@@ -21,6 +21,14 @@ public abstract class ConnectionPool {
         basicDataSource.setMaxWaitMillis(-1);
     }
 
+    protected void applyConfiguration(DatabaseConfig databaseConfig, int poolSize) {
+        basicDataSource.setUsername(databaseConfig.getUser());
+        basicDataSource.setPassword(databaseConfig.getPassword());
+        basicDataSource.setUrl(databaseConfig.getUrl());
+        basicDataSource.setMaxTotal(poolSize);
+        basicDataSource.setMaxWaitMillis(-1);
+    }
+
     public Connection getConnection() {
         Connection connection = null;
         try {

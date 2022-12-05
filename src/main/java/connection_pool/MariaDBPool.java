@@ -9,7 +9,9 @@ public class MariaDBPool extends ConnectionPool{
 
     public static MariaDBPool getInstance(DatabaseConfig databaseConfig, int poolSize) {
         if (pool == null) {
-            //TODO: Read configurations and create pool instance
+            pool = new MariaDBPool(databaseConfig, poolSize);
+        } else {
+            pool.applyConfiguration(databaseConfig, poolSize);
         }
         return pool;
     }

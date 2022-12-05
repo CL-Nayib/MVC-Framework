@@ -9,7 +9,9 @@ public class MySQLPool extends ConnectionPool{
 
     public static MySQLPool getInstance(DatabaseConfig databaseConfig, int poolSize) {
         if (pool == null) {
-            //TODO: Read configurations and create pool instance
+            pool = new MySQLPool(databaseConfig, poolSize);
+        } else {
+            pool.applyConfiguration(databaseConfig, poolSize);
         }
         return pool;
     }
