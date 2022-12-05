@@ -176,6 +176,15 @@ public class ConfigReaderTest {
     }
 
     @Test
+    @Description("Should throw an IllegalArgumentException")
+    public void sizeShouldBeZeroOrPositive() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new PoolConfigReader("src/test/resources/config/negativeSizePool.json")
+        );
+    }
+
+    @Test
     @Description("Should read the database config file and return an array")
     public void readDatabaseConfigFile() {
         assertDoesNotThrow(() -> {
