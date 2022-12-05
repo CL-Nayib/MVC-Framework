@@ -1,0 +1,10 @@
+{
+ "poolConfig" : [
+   {
+     "size" : 5,
+     "port" : 3306,
+     "urlServer" : "localhost",
+     "databaseType" : "MySQL"
+   }
+ ]
+}
