@@ -13,10 +13,6 @@ public class PoolConfigReader extends ConfigReader<PoolConfig> {
 
     private static final String configArrayName = "poolConfig";
 
-    public PoolConfigReader() throws JsonAttributeException, FileNotFoundException {
-        this("config/poolConfig.json");
-    }
-
     public PoolConfigReader(String filePath) throws JsonAttributeException, FileNotFoundException {
         super(
                 filePath,
