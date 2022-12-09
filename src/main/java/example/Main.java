@@ -26,7 +26,7 @@ public class Main {
     public void init(String mvcConfigFile, String loggerConfigFile) {
         LoggerConfig.readConfigFile(loggerConfigFile);
         Logger logger = LoggerConfig.createLogger(this.getClass());
-        logger.info("Hello World");
+
         logger.fatal("nOOOooOOoo");
 
         try {
