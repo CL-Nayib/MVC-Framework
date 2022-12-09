@@ -42,7 +42,7 @@ public class LoggerConfig {
 
     public static Logger createLogger(Class clazz) {
         if (configurations[0].isActive()) {
-            logger = Logger.getLogger(clazz);
+            logger = LogFactory.createLogger(clazz, configurations[0].getMaxFileSize(), configurations[0].getMaxFiles());
             return logger;
         } else {
             throw new RuntimeException("Logger is not active");
