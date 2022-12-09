@@ -13,7 +13,9 @@ public class LogFactory {
 
     private static Logger LOG;
 
-    public static Logger createLogger(Class clazz, int maxFileSize, int maxBackupIndex) {
+
+
+    public static Logger createLogger(Class clazz, int maxFileSize, int maxBackupIndex, boolean isActive) {
         try {
             LOG = Logger.getLogger(clazz.getName());
             String logfile = "logs/filelog.";
@@ -22,6 +24,8 @@ public class LogFactory {
             SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
             String fechaAc = formato.format(fecha);
             PatternLayout defaultLayout = new PatternLayout("%d{dd-MM-yyyy HH:mm:ss} %-5p %c{1}:%L: %m%n");
+            if (!isActive){
+            LOG.setLevel(org.apache.log4j.Level.OFF);}
 
             RollingFileAppender rollingFileAppender = new RollingFileAppender();
             rollingFileAppender.setFile(logfile + fechaAc + ".log", true, false, 0);
