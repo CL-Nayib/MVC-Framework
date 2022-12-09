@@ -1,0 +1,9 @@
+{
+  "loggerConfiguration": [
+    {
+      "active": true,
+      "maxFileSize": 10,
+      "maxFiles": 3
+    }
+  ]
+}

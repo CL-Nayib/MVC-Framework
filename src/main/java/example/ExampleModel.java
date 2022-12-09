@@ -7,7 +7,7 @@ public class ExampleModel extends Model {
 
     @Override
     protected void service(String info) {
-        data = "wazaaaa "+info;
+        data = "hola "+info;
     }
 
     @Override

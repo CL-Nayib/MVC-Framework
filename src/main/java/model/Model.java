@@ -1,5 +1,6 @@
 package model;
 
+import logger.LoggerConfig;
 import view.View;
 
 public abstract class Model {
@@ -15,6 +16,7 @@ public abstract class Model {
     }
 
     public void processService(String msg) {
+
         service(msg);
         String data = getData();
         notifyView(data);
