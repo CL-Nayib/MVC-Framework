@@ -16,7 +16,7 @@ public abstract class ConnectionPool {
         basicDataSource.setDriverClassName(getDriverClassName());
         basicDataSource.setUsername(databaseConfigInfo.getUser());
         basicDataSource.setPassword(databaseConfigInfo.getPassword());
-        basicDataSource.setUrl(databaseConfigInfo.getUrl());
+        basicDataSource.setUrl(databaseConfigInfo.getUrl() + "/" + databaseConfigInfo.getId());
         basicDataSource.setMaxTotal(poolSize);
         basicDataSource.setMaxWaitMillis(-1);
     }
@@ -24,7 +24,7 @@ public abstract class ConnectionPool {
     protected void applyConfiguration(DatabaseConfig databaseConfig, int poolSize) {
         basicDataSource.setUsername(databaseConfig.getUser());
         basicDataSource.setPassword(databaseConfig.getPassword());
-        basicDataSource.setUrl(databaseConfig.getUrl());
+        basicDataSource.setUrl(databaseConfig.getUrl() + "/" + databaseConfig.getId());
         basicDataSource.setMaxTotal(poolSize);
         basicDataSource.setMaxWaitMillis(-1);
     }

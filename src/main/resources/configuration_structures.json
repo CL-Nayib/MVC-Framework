@@ -22,5 +22,12 @@
             "urlServer" : "String",
             "databaseType" : "Enum"
         }
+    ],
+    "loggerConfiguration" : [
+        {
+            "active" : "Boolean",
+            "maxFileSize" : "Int",
+            "maxFiles" : "Int"
+        }
     ]
 }

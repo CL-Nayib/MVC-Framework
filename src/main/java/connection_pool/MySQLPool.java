@@ -1,6 +1,6 @@
 package connection_pool;
 
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 import config.database.DatabaseConfig;
 
 public class MySQLPool extends ConnectionPool{
@@ -22,6 +22,6 @@ public class MySQLPool extends ConnectionPool{
 
     @Override
     protected String getDriverClassName() {
-        return Driver.class.toString();
+        return Driver.class.getName();
     }
 }
