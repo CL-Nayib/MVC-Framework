@@ -41,12 +41,12 @@ public class PoolFactory {
     }
 
     private PoolConfig[] getPoolConfigurations() throws JsonAttributeException, FileNotFoundException {
-        PoolConfigReader reader = new PoolConfigReader("config/poolConfig.json");
+        PoolConfigReader reader = new PoolConfigReader("src/main/java/example/poolConfig.json");
         return reader.getConfigurations();
     }
 
     private DatabaseConfig[] getDatabaseConfigurations() throws JsonAttributeException, FileNotFoundException {
-        DatabaseConfigReader reader = new DatabaseConfigReader("config/databaseConfig.json");
+        DatabaseConfigReader reader = new DatabaseConfigReader("src/main/java/example/databaseConfig.json");
         return reader.getConfigurations();
     }
 }
