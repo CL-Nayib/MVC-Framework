@@ -1,0 +1,10 @@
+{
+  "mvcConfiguration" : [
+    {
+      "controllerClass": "c",
+      "functionName": "f",
+      "modelClass": "m",
+      "transactionName": "t"
+    }
+  ]
+}
