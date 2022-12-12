@@ -1,7 +1,7 @@
 package example;
 
 
-import view.View;
+import config.mvc.view.View;
 
 public class ExampleView implements View {
 

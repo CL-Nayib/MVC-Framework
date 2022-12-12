@@ -1,4 +1,4 @@
-package logger;
+package config.logger;
 
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;

@@ -52,7 +52,7 @@ public abstract class ConnectionPool {
         }
     }
 
-    public void reducePoolSize(int reduce) {
+        public void reducePoolSize(int reduce) {
         int newTotal = basicDataSource.getMaxTotal() - reduce;
         if (newTotal < 1) {
             System.err.println("Cannot reduce the pool lower than 0");

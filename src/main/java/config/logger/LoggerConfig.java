@@ -1,4 +1,4 @@
-package logger;
+package config.logger;
 
 import config.exceptions.JsonAttributeException;
 import org.apache.log4j.Logger;
@@ -11,15 +11,6 @@ public class LoggerConfig {
     private static LogConfigReader reader;
     private static LogModel[] configurations;
 
-    private static String configFile;
-
-    public static void setConfigFile(String filepath) {
-        configFile = filepath;
-    }
-
-    public static Logger getLogger() {
-        return logger;
-    }
 
     public static boolean isActive() {
         return configurations[0].isActive();
@@ -37,13 +28,10 @@ public class LoggerConfig {
     }
 
 
-
-
-
     public static Logger createLogger(Class clazz) {
 
-            logger = LogFactory.createLogger(clazz, configurations[0].getMaxFileSize(), configurations[0].getMaxFiles(),configurations[0].isActive());
-            return logger;
+        logger = LogFactory.createLogger(clazz, configurations[0].getMaxFileSize(), configurations[0].getMaxFiles(), configurations[0].isActive());
+        return logger;
 
 
     }

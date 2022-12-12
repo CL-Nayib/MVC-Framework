@@ -28,7 +28,7 @@ public abstract class ConfigReader<Configuration> {
         jsonFile = gson.fromJson(reader, JsonElement.class);
     }
 
-    protected void validateFile(String configArrayName, String[] attributes) throws IllegalStateException, JsonAttributeException {
+        protected void validateFile(String configArrayName, String[] attributes) throws IllegalStateException, JsonAttributeException {
         validateObject(jsonFile);
 
         JsonObject jsonObject = jsonFile.getAsJsonObject();

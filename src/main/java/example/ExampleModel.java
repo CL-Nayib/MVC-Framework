@@ -1,6 +1,6 @@
 package example;
 
-import model.Model;
+import config.mvc.model.Model;
 
 public class ExampleModel extends Model {
  private String data;

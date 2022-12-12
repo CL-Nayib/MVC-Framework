@@ -1,7 +1,7 @@
-package controller;
+package config.mvc.controller;
 
-import logger.LoggerConfig;
-import model.Model;
+import config.logger.LoggerConfig;
+import config.mvc.model.Model;
 import org.apache.log4j.Logger;
 
 public abstract class Controller {

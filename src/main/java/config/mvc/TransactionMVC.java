@@ -1,15 +1,14 @@
 package config.mvc;
 
-import controller.Controller;
-import model.Model;
-import view.View;
-
+import config.mvc.controller.Controller;
+import config.mvc.model.Model;
+import config.mvc.view.View;
 
 
 public class TransactionMVC {
-View view;
-Controller controller;
-Model model;
+    private View view;
+    private Controller controller;
+    private Model model;
 
     public View getView() {
         return view;

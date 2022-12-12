@@ -1,7 +1,7 @@
 package example;
 
-import controller.Controller;
-import logger.LoggerConfig;
+import config.mvc.controller.Controller;
+import config.logger.LoggerConfig;
 import org.apache.log4j.Logger;
 
 public class ExampleController extends Controller {

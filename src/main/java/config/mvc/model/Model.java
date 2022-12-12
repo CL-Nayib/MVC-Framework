@@ -1,7 +1,6 @@
-package model;
+package config.mvc.model;
 
-import logger.LoggerConfig;
-import view.View;
+import config.mvc.view.View;
 
 public abstract class Model {
     private View view;

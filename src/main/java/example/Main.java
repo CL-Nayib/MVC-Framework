@@ -6,8 +6,8 @@ import config.mvc.TransactionPool;
 import connection_pool.ConnectionPool;
 import connection_pool.MySQLPool;
 import connection_pool.PoolFactory;
-import controller.Controller;
-import logger.LoggerConfig;
+import config.mvc.controller.Controller;
+import config.logger.LoggerConfig;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
